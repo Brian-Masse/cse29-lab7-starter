@@ -7,6 +7,8 @@ void buggy_expandCapacity(List* a) {
     String* new_ptr = calloc(new_cap, sizeof(String));
     memcpy(new_ptr, a->contents, a->size * sizeof(String));
 
+	free(a->contents);
+
     a->capacity = new_cap;
     a->contents = new_ptr;
 }

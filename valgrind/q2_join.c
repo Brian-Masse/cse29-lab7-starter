@@ -27,7 +27,9 @@ String buggy_join(String strs[], int count, String delimiter) {
             total_length += delimiter.length;
         }
 
+	free(old_contents);
     }
+	
 
     // strcpy should have put a null terminator already
     String r = { total_length, new_contents };

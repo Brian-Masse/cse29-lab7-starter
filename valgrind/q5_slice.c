@@ -9,7 +9,10 @@ List buggy_slice(List a, uint32_t start, uint32_t end) {
     List b = new_List();
 
     for (uint32_t i = start; i < end; i += 1) {
-        append1(&b, a.contents[i]);
+	
+	String str_cpy = new_String( a.contents[i].contents );
+
+        append1(&b, str_cpy);
     }
 
     return b;

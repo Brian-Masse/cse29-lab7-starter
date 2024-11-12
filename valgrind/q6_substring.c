@@ -8,18 +8,17 @@ String substring2(String s, int start, int end) {
     assert(end <= s.length);
     assert(start <= end);
     
+	int new_length = end - start;
+
     // Make a copy of s.contents for us to substringify
-    char* s_copy = malloc(s.length + 1);
-    strcpy(s_copy, s.contents);
+    char* s_copy = malloc(new_length + 1);
+    strcpy(s_copy, s.contents + start);
 
-    int new_length = end - start;
 
-    // Get a pointer to substring at start index
-    char *substring_start = s_copy + start;
     // Terminate our copy at index `end`
-    s_copy[end] = 0;
+    s_copy[new_length - 1] = 0;
 
-    String r = { new_length, substring_start };
+    String r = { new_length, s_copy };
     return r;
 }
 

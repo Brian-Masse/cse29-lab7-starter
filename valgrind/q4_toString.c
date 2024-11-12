@@ -2,7 +2,9 @@
 
 String buggy_toString(List l) {
     // Join all strings with commas
-    String str_1 = join(l.contents, l.size, new_String(", "));
+	String comma = new_String(", ");
+    
+	String str_1 = join(l.contents, l.size, comma);
 
     // Add brackets
     String lbracket = new_String("[");
@@ -15,6 +17,7 @@ String buggy_toString(List l) {
     free(str_2.contents);
     free(lbracket.contents);
     free(rbracket.contents);
+    free(comma.contents);
 
     return str_3; 
 }
